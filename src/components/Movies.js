@@ -145,11 +145,11 @@ function Movies({ title }) {
 
 export default Movies;
 
-const Container = styled.div`
+export const Container = styled.div`
   margin-top: 30px;
 `;
 
-const Carousel = styled(Slider)`
+export const Carousel = styled(Slider)`
   .slick-list {
     overflow: visible;
     margin: 0 -5px;
@@ -256,7 +256,7 @@ const Carousel = styled(Slider)`
   }
 `;
 
-const SectionTitle = styled.div`
+export const SectionTitle = styled.div`
   font-size: 20px;
   padding: 10px 0;
   font-weight: 600;
