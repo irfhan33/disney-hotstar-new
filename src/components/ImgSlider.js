@@ -23,8 +23,15 @@ function ImgSlider() {
         to create documentary study to becase cops"
           image="https://img1.hotstarext.com/image/upload/f_auto,t_web_m_1x/sources/r1/cms/prod/5144/875144-h"
         />
-
         <CarouselItem
+          title="Free Woman"
+          subTitle="Action . 2021"
+          description="Four friends living a crazzy romance video games and decides to gelp
+      to create documentary study to becase cops"
+          image="https://cdn.wallpapersafari.com/65/88/RmjTg8.jpg"
+        />
+
+        {/* <CarouselItem
           title="Crazy Love"
           subTitle="1 Season . 3 Episode . Action . 13+"
           description="EPISODE BARU SETIAP SENIN & SELASA. Kisah asmara gila antara CEO yang pura-pura amnesia dan sekretarisnya yang berpura-pura menjadi tunangannya."
@@ -43,7 +50,7 @@ function ImgSlider() {
           subTitle="1 Jam 24 Menit . 3 Episode . Action . 13+"
           description="Sebuha film aksi-komedi tentang teller bank yang mendapati dirinya adalah karakter latar belakang dalam gim video dunia terbuka berjudul Free City"
           image="https://wallpaperaccess.com/full/329583.jpg"
-        />
+        /> */}
       </Carousel>
     </Container>
   );

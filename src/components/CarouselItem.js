@@ -39,12 +39,14 @@ const Image = styled.div`
   img {
     height: 100%;
     object-fit: cover;
+    /* max-height: 400px; */
     max-height: 400px;
 
     @media (max-width: 768px) {
       width: 100%;
       /* height: auto; */
       opacity: 0.8;
+      max-height: 51vw;
     }
   }
 
