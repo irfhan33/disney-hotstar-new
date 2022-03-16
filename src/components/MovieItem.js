@@ -29,9 +29,24 @@ export default MovieItem;
 
 const CardImage = styled.div`
   cursor: pointer;
+  height: 15vw;
+
+  @media (max-width: 1024px) {
+    height: 20vw;
+  }
+
+  @media (max-width: 768px) {
+    height: 30vw;
+  }
+
+  @media (max-width: 426px) {
+    height: 40vw;
+  }
+
   img {
     width: 100%;
     height: 100%;
+    object-fit: cover;
   }
 `;
 
@@ -51,13 +66,17 @@ const InfoWrapper = styled.div`
 `;
 
 const Container = styled.div`
-  background-color: red;
+  /* background-color: red; */
   position: relative;
   border-radius: 4px;
   overflow: hidden;
   cursor: pointer;
   transition: all 250ms;
   margin: 0 5px;
+
+  @media (max-width: 426px) {
+    margin: 0 3px;
+  }
   &:hover {
     transform: scale(1.2);
     z-index: 4;

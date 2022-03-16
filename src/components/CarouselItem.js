@@ -38,8 +38,8 @@ const Image = styled.div`
 
   img {
     height: 100%;
-    max-height: 400px;
     object-fit: cover;
+    max-height: 400px;
 
     @media (max-width: 768px) {
       width: 100%;
@@ -120,20 +120,36 @@ const Title = styled.h2`
 const SubTitle = styled.span`
   font-size: 16px;
   font-weight: 500;
+  margin: 10px 0;
+  display: block;
+
+  max-width: 50vw;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 
   @media (max-width: 768px) {
     font-size: 14px;
+    margin: 1px 0;
   }
 
   @media (max-width: 426px) {
-    font-size: 12px;
+    font-size: 10px;
+    margin: 0;
   }
 `;
 const Description = styled.p`
   font-size: 16px;
   overflow-wrap: break-word;
   line-height: 28px;
-  max-width: 30vw;
+  max-width: 40vw;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 
   @media (max-width: 768px) {
     margin: 3px 0;
@@ -143,7 +159,7 @@ const Description = styled.p`
   }
 
   @media (max-width: 426px) {
-    font-size: 10px;
+    font-size: 8px;
     line-height: 13px;
   }
 `;

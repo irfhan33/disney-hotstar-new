@@ -5,7 +5,7 @@ import Slider from "react-slick";
 import styled from "styled-components";
 import MovieItem from "./MovieItem";
 
-function Movies() {
+function Movies({ title }) {
   const settings = {
     speed: 500,
     slidesToShow: 8,
@@ -40,9 +40,10 @@ function Movies() {
   };
   return (
     <Container>
+      <SectionTitle>{title}</SectionTitle>
       <Carousel {...settings}>
         <MovieItem
-          cardImage="https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_3x/sources/r1/cms/prod/2415/1112415-v-f59565643ec7"
+          cardImage="https://wallpaper.dog/large/5445878.jpg"
           title="Encanto"
           subTitle="1 Jam 42 Menit, Musical, Kids, English, Malay, Indonesian, Thai, 2021"
           description="Tells the tale of the Madrigals, an extraordinary family living in a great city in the sky"
@@ -152,6 +153,8 @@ const Carousel = styled(Slider)`
   .slick-list {
     overflow: visible;
     margin: 0 -5px;
+    position: relative;
+    /* width: 100vw; */
   }
 
   .slick-slide {
@@ -161,8 +164,100 @@ const Carousel = styled(Slider)`
   .slick-track {
     /* transform: translate3d(0px, 0px, 0px) !important; */
   }
-
-  > button {
-    z-index: 10;
+  .slick-disabled {
+    display: none !important;
   }
+
+  button {
+    opacity: 0;
+    height: 100%;
+    z-index: 99;
+    transition: opacity 0.2s ease 0s;
+    display: flex;
+    width: 4vw;
+    transition: all 250ms;
+  }
+
+  &:hover {
+    button {
+      opacity: 1;
+    }
+
+    .slick-next {
+      background: linear-gradient(
+        to right,
+        transparent,
+        rgba(12, 17, 27, 0.7),
+        rgba(12, 17, 27, 0.9)
+      );
+    }
+
+    .slick-prev {
+      background: linear-gradient(
+        to left,
+        transparent,
+        rgba(12, 17, 27, 0.7),
+        rgba(12, 17, 27, 0.9)
+      );
+    }
+  }
+
+  .slick-next {
+    right: -50px;
+    @media (max-width: 1024px) {
+      right: -32px;
+    }
+
+    @media (max-width: 768px) {
+      right: -23px;
+    }
+
+    @media (max-width: 426px) {
+      right: -13px;
+    }
+    &:before {
+      /* content: ""; */
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      align-items: center;
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  .slick-prev {
+    left: -50px;
+
+    @media (max-width: 1024px) {
+      left: -32px;
+    }
+
+    @media (max-width: 768px) {
+      left: -23px;
+    }
+
+    @media (max-width: 426px) {
+      left: -13px;
+    }
+    &:before {
+      /* content: ""; */
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      align-items: center;
+      display: flex;
+      justify-content: center;
+    }
+  }
+`;
+
+const SectionTitle = styled.div`
+  font-size: 20px;
+  padding: 10px 0;
+  font-weight: 600;
 `;

@@ -6,7 +6,8 @@ function Home() {
   return (
     <Container>
       <ImgSlider />
-      <Movies />
+      <Movies title="Pilihan Top Untukmu" />
+      <Movies title="Baru Di Disney+ Hotstar" />
     </Container>
   );
 }

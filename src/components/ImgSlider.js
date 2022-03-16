@@ -37,6 +37,13 @@ function ImgSlider() {
           description="Sebuha film aksi-komedi tentang teller bank yang mendapati dirinya adalah karakter latar belakang dalam gim video dunia terbuka berjudul Free City"
           image="https://img1.hotstarext.com/image/upload/f_auto,t_web_m_1_5x/sources/r1/cms/prod/2416/1112416-h-6c226c2e80b1"
         />
+
+        <CarouselItem
+          title="Avenger"
+          subTitle="1 Jam 24 Menit . 3 Episode . Action . 13+"
+          description="Sebuha film aksi-komedi tentang teller bank yang mendapati dirinya adalah karakter latar belakang dalam gim video dunia terbuka berjudul Free City"
+          image="https://wallpaperaccess.com/full/329583.jpg"
+        />
       </Carousel>
     </Container>
   );
@@ -51,43 +58,62 @@ const Carousel = styled(Slider)`
     overflow: visible;
   }
 
-  & > button {
+  button {
     opacity: 0;
     height: 100%;
     z-index: 99;
     transition: opacity 0.2s ease 0s;
-    display: flex;
-    width: 4vw;
+    width: 3vw;
+    /* background: red; */
+  }
 
-    &:hover {
+  &:hover {
+    button {
       opacity: 1;
     }
   }
 
   .slick-prev {
     /* left: -75px; */
-    z-index: 99;
-    /* background-color: blue; */
 
     &:before {
-      /* background-color: red; */
-      content: url("/arrow-left.svg");
+      /* content: url("/arrow-left.svg"); */
+      content: "";
+      background: url("/arrow-left.svg");
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 100%;
+      /* width: 40px; */
       position: absolute;
-      font-family: "slick";
-
       opacity: 0.75;
-      color: white;
-      top: 50%;
-      transform: translateY(-50%);
+      /* top: 50%;
+      transform: translateY(-50%); */
       left: 0;
       right: 0;
+      top: 0;
+      bottom: 0;
+      /* display: flex;
+      align-items: center;
+      justify-content: center; */
+      /* background-color: blue; */
     }
   }
 
   .slick-next {
     /* right: -75px; */
-    z-index: 99;
-    /* background-color: red; */
+
+    &:before {
+      content: "";
+      background: url("/arrow-right.svg");
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 100%;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+    }
   }
 
   cursor: pointer;
