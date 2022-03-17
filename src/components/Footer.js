@@ -49,7 +49,7 @@ function Footer() {
 export default Footer;
 
 const Container = styled.div`
-  padding: 90px 0;
+  padding: 90px 3vw;
   display: grid;
   grid-template-columns: 60% 40%;
 

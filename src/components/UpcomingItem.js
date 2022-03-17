@@ -12,6 +12,14 @@ function UpcomingItem() {
           alt=""
         />
       </CardImage>
+      <TitleWrapper>
+        <ButtonWatch>
+          <PlayArrowRoundedIcon className="icon_play" />
+          <span>
+            Pintu Surga Terakhit - Traile dwadwa awdawdw awd dwadw wadwar
+          </span>
+        </ButtonWatch>
+      </TitleWrapper>
       <InfoWrapper>
         <ButtonWatch>
           <PlayArrowRoundedIcon className="icon_play" />
@@ -39,52 +47,6 @@ const CardImage = styled.div`
   }
 `;
 
-const InfoWrapper = styled.div`
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 10px 10px;
-  background-image: linear-gradient(to top, #192133, rgba(4, 8, 15, 0.3));
-  opacity: 0;
-  transition: all 250ms;
-`;
-
-const Container = styled.div`
-  margin: 0 5px;
-  background-color: red;
-  border-radius: 4px;
-  overflow: hidden;
-  position: relative;
-  transition: all 250ms;
-  cursor: pointer;
-
-  &:hover {
-    transform: scale(1.2);
-    z-index: 4;
-    ${InfoWrapper} {
-      opacity: 1;
-    }
-  }
-`;
-
-const Description = styled.p`
-  /* font-size: calc(11px / 1.3); */
-  font-size: 9px;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  font-weight: 600;
-  opacity: 0.8;
-  margin-bottom: 3px;
-  padding: 0 5px;
-`;
 const ButtonWatch = styled.div`
   display: flex;
   align-items: center;
@@ -105,6 +67,83 @@ const ButtonWatch = styled.div`
     font-weight: 600;
   }
 `;
+
+const TitleWrapper = styled.div`
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  transition: all 250ms;
+  background-image: linear-gradient(
+    to top,
+    rgba(3, 11, 23, 0.8),
+    transparent 40%
+  );
+
+  span {
+    font-size: 14px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+`;
+
+const InfoWrapper = styled.div`
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 10px 10px;
+  background-image: linear-gradient(to top, #192133, rgba(4, 8, 15, 0.3));
+  opacity: 0;
+  transition: all 250ms;
+`;
+
+const Container = styled.div`
+  margin: 0 5px;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+  transition: all 250ms;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.2);
+    z-index: 4;
+    ${InfoWrapper} {
+      opacity: 1;
+    }
+
+    ${TitleWrapper} {
+      display: none;
+    }
+  }
+`;
+
+const Description = styled.p`
+  /* font-size: calc(11px / 1.3); */
+  font-size: 9px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 600;
+  opacity: 0.8;
+  margin-bottom: 3px;
+  padding: 0 5px;
+`;
+
 const ButtonAdd = styled.div`
   display: flex;
   align-items: center;

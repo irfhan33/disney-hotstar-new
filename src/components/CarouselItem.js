@@ -6,7 +6,7 @@ import ShareIcon from "@mui/icons-material/Share";
 
 function CarouselItem({ title, subTitle, description, image, detail }) {
   return (
-    <Container>
+    <Container detail="detail">
       <InfoWrapper>
         <Title detail={detail}>{title}</Title>
         <SubTitle detail={detail}>{subTitle}</SubTitle>
@@ -47,6 +47,11 @@ const Container = styled.div`
   overflow: hidden;
   position: relative;
   margin: 0 10px;
+  ${({ detail }) => detail && "cursor:pointer"};
+
+  @media (max-width: 426px) {
+    margin: 0 3px;
+  }
 `;
 
 const Image = styled.div`

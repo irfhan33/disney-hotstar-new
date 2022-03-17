@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import Footer from "./Footer";
 import ImgSlider from "./ImgSlider";
 import Movies from "./Movies";
 import Upcoming from "./Upcoming";
@@ -10,9 +9,8 @@ function Home() {
       <ImgSlider />
       <Movies title="Pilihan Top Untukmu" />
       <Movies title="Baru Di Disney+ Hotstar" />
-      <Upcoming />
+      <Upcoming title="Akan Datang" />
       <Movies title="Trending" />
-      <Footer />
     </Container>
   );
 }

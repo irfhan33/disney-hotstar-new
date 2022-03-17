@@ -6,7 +6,7 @@ import Slider from "react-slick";
 import styled from "styled-components";
 import UpcomingItem from "./UpcomingItem";
 
-function Upcoming() {
+function Upcoming({ title }) {
   const settings = {
     speed: 500,
     slidesToShow: 6,
@@ -42,7 +42,7 @@ function Upcoming() {
   };
   return (
     <Container>
-      <SectionTitle>Akan Datang</SectionTitle>
+      <SectionTitle>{title}</SectionTitle>
       <Carousel {...settings}>
         <UpcomingItem />
         <UpcomingItem />

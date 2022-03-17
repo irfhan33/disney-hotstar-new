@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import CarouselItem from "./CarouselItem";
+import Movies from "./Movies";
+import Upcoming from "./Upcoming";
 
 function Detail() {
   return (
@@ -13,6 +15,8 @@ function Detail() {
         image="https://cdn.wallpapersafari.com/65/88/RmjTg8.jpg"
         detail="true"
       />
+      <Upcoming title="Trailer" />
+      <Movies title="Yang Seperti Ini" />
     </Container>
   );
 }
