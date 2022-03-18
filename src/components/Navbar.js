@@ -2,8 +2,12 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { selectUserPhoto, setUserLogin } from "../features/user/userSlice";
-import { signInWithPopup } from "firebase/auth";
+import {
+  selectUserPhoto,
+  setUserLogin,
+  setUserLogout,
+} from "../features/user/userSlice";
+import { signInWithPopup, signOut } from "firebase/auth";
 import { auth } from "../firebaseConfig";
 import { provider } from "./../firebaseConfig";
 
@@ -24,6 +28,16 @@ function Navbar() {
       })
       .catch((err) => {
         console.error(err.message);
+      });
+  };
+
+  const logoutUser = (e) => {
+    signOut(auth)
+      .then(() => {
+        dispatch(setUserLogout());
+      })
+      .catch((err) => {
+        console.log(err.message);
       });
   };
 
@@ -59,7 +73,7 @@ function Navbar() {
       {userPhoto ? (
         <UserAvatar>
           <img src={userPhoto} alt="" />
-          <LogoutButton>
+          <LogoutButton onClick={logoutUser}>
             <span>Logout</span>
           </LogoutButton>
         </UserAvatar>
