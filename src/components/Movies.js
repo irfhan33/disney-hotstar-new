@@ -4,6 +4,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import styled from "styled-components";
 import MovieItem from "./MovieItem";
+import { Link } from "react-router-dom";
 
 function Movies({ title }) {
   const settings = {
@@ -42,12 +43,14 @@ function Movies({ title }) {
     <Container>
       <SectionTitle>{title}</SectionTitle>
       <Carousel {...settings}>
-        <MovieItem
-          cardImage="https://wallpaper.dog/large/5445878.jpg"
-          title="Encanto"
-          subTitle="1 Jam 42 Menit, Musical, Kids, English, Malay, Indonesian, Thai, 2021"
-          description="Tells the tale of the Madrigals, an extraordinary family living in a great city in the sky"
-        />
+        <Link to="/detail">
+          <MovieItem
+            cardImage="https://wallpaper.dog/large/5445878.jpg"
+            title="Encanto"
+            subTitle="1 Jam 42 Menit, Musical, Kids, English, Malay, Indonesian, Thai, 2021"
+            description="Tells the tale of the Madrigals, an extraordinary family living in a great city in the sky"
+          />
+        </Link>
         <MovieItem
           cardImage="https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_1_5x/sources/r1/cms/prod/5663/745663-v"
           title="Encanto"

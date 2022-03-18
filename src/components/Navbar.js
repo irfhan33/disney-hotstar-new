@@ -1,18 +1,46 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { selectUserPhoto, setUserLogin } from "../features/user/userSlice";
+import { signInWithPopup } from "firebase/auth";
+import { auth } from "../firebaseConfig";
+import { provider } from "./../firebaseConfig";
 
 function Navbar() {
+  const dispatch = useDispatch();
+  const loginUser = (e) => {
+    e.preventDefault();
+
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        dispatch(
+          setUserLogin({
+            name: result.user.displayName,
+            email: result.user.email,
+            photo: result.user.photoURL,
+          })
+        );
+      })
+      .catch((err) => {
+        console.error(err.message);
+      });
+  };
+
+  const userPhoto = useSelector(selectUserPhoto);
   return (
     <Container>
       <GenreButton>
         <img src="/menu.svg" alt="" />
       </GenreButton>
-      <Logo>
-        <img
-          src="https://secure-media.hotstarext.com/web-assets/prod/images/brand-logos/disney-hotstar-logo-dark.svg"
-          alt=""
-        />
-      </Logo>
+      <Link to="/">
+        <Logo>
+          <img
+            src="https://secure-media.hotstarext.com/web-assets/prod/images/brand-logos/disney-hotstar-logo-dark.svg"
+            alt=""
+          />
+        </Logo>
+      </Link>
       <NavMenu>
         <NavMenuItem>Serial</NavMenuItem>
         <NavMenuItem>Film</NavMenuItem>
@@ -27,7 +55,17 @@ function Navbar() {
       </SearchButton>
       <SubscriptionButton>Langganan</SubscriptionButton>
       <LanguageButton>Indonesia</LanguageButton>
-      <LoginButton>MASUK</LoginButton>
+
+      {userPhoto ? (
+        <UserAvatar>
+          <img src={userPhoto} alt="" />
+          <LogoutButton>
+            <span>Logout</span>
+          </LogoutButton>
+        </UserAvatar>
+      ) : (
+        <LoginButton onClick={loginUser}>MASUK</LoginButton>
+      )}
     </Container>
   );
 }
@@ -134,6 +172,37 @@ const SearchButton = styled.div`
 
     &::placeholder {
       color: #ffffffcc;
+    }
+  }
+`;
+
+const LogoutButton = styled.div`
+  position: absolute;
+  font-size: 14px;
+  top: 100%;
+  background-color: rgba(222, 222, 222, 0.1);
+  padding: 3px 5px;
+  left: -4px;
+  border-radius: 4px;
+  margin-top: 2px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  opacity: 0;
+  transition: all 250ms;
+`;
+
+const UserAvatar = styled.div`
+  width: 44px;
+  cursor: pointer;
+  position: relative;
+
+  img {
+    width: 100%;
+    border-radius: 50%;
+  }
+
+  &:hover {
+    ${LogoutButton} {
+      opacity: 1;
     }
   }
 `;
